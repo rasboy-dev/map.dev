@@ -1,0 +1,38 @@
+
+Warning: PHP Startup: Unable to load dynamic library 'c:/wamp64/bin/php/php5.6.25/ext/php_pdo_firebird.dll' - Не найден указанный модуль.
+ in Unknown on line 0
+
+Warning: PHP Startup: Unable to load dynamic library 'c:/wamp64/bin/php/php5.6.25/ext/php_pdo_informix.dll' - %1 не является приложением Win32.
+ in Unknown on line 0
+
+Warning: PHP Startup: Unable to load dynamic library 'c:/wamp64/bin/php/php5.6.25/ext/php_pdo_mssql.dll' - %1 не является приложением Win32.
+ in Unknown on line 0
+
+Warning: PHP Startup: Unable to load dynamic library 'c:/wamp64/bin/php/php5.6.25/ext/php_pdo_oci.dll' - Не найден указанный модуль.
+ in Unknown on line 0
+
+Warning: PHP Startup: Unable to load dynamic library 'c:/wamp64/bin/php/php5.6.25/ext/php_pdo_oci8.dll' - %1 не является приложением Win32.
+ in Unknown on line 0
+<?php
+class Config {
+	static function set() {
+		define('PROJECT_PATH', '/map.dev');
+		define('REAL_PATH', dirname(__FILE__));
+
+		//echo PROJECT_PATH, "<br>";
+		//echo REAL_PATH, "<br>";
+
+		require_once (REAL_PATH.'/core/model.php');
+		require_once (REAL_PATH.'/core/view.php');
+		require_once (REAL_PATH.'/core/controller.php');
+
+		require_once (REAL_PATH.'/core/mysql.php');
+		$host_sql = array('host' => "localhost",
+			'user'                  => "root",
+			'pass'                  => "",
+			'db'                    => "map");
+		DataBase::get_instance($host_sql);
+
+		require_once (REAL_PATH.'/core/route.php');
+	}
+}

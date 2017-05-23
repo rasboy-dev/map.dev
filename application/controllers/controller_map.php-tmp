@@ -1,0 +1,32 @@
+
+Warning: PHP Startup: Unable to load dynamic library 'c:/wamp64/bin/php/php5.6.25/ext/php_pdo_firebird.dll' - Не найден указанный модуль.
+ in Unknown on line 0
+
+Warning: PHP Startup: Unable to load dynamic library 'c:/wamp64/bin/php/php5.6.25/ext/php_pdo_informix.dll' - %1 не является приложением Win32.
+ in Unknown on line 0
+
+Warning: PHP Startup: Unable to load dynamic library 'c:/wamp64/bin/php/php5.6.25/ext/php_pdo_mssql.dll' - %1 не является приложением Win32.
+ in Unknown on line 0
+
+Warning: PHP Startup: Unable to load dynamic library 'c:/wamp64/bin/php/php5.6.25/ext/php_pdo_oci.dll' - Не найден указанный модуль.
+ in Unknown on line 0
+
+Warning: PHP Startup: Unable to load dynamic library 'c:/wamp64/bin/php/php5.6.25/ext/php_pdo_oci8.dll' - %1 не является приложением Win32.
+ in Unknown on line 0
+<?php
+
+class Controller_Map extends Controller {
+
+	function __construct() {
+		$this->model = new Model_Map();
+		$this->view  = new View();
+	}
+
+	//default action
+	function action_index() {
+
+		$data = null;
+		//view generating
+		$this->view->generate('map_view.php', 'template_view.php', $data);
+	}
+}
